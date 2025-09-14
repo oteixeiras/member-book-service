@@ -28,6 +28,7 @@ RUN pip install --no-cache-dir \
     psycopg2-binary==2.9.9 \
     python-multipart==0.0.6 \
     pydantic==2.5.0 \
+    pydantic-settings==2.1.0 \
     gunicorn==21.2.0
 
 # Copy application code
