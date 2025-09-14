@@ -185,6 +185,7 @@ class MemberService:
             updated_count = {}
             errors = []
             processed_company_ids: List[int] = []
+            created_member_ids: List[int] = []  # Adicionar esta linha
             
             # Filtrar apenas objetos não vazios
             filtered_data = request_data.get_non_empty_objects()
@@ -342,6 +343,7 @@ class MemberService:
                             self.db.add(member)
                             self.db.flush()
                             created_count["members"] += 1
+                            created_member_ids.append(member.id)  # Adicionar esta linha
                             
                             # Criar canais de contato se fornecidos
                             if member_data.contact_channels:
@@ -407,6 +409,7 @@ class MemberService:
                 "created_count": created_count,
                 "updated_count": updated_count,
                 "errors": errors,
+                "created_member_ids": created_member_ids,  # Adicionar esta linha
                 "timestamp": datetime.utcnow().isoformat() + "Z"
             }
             

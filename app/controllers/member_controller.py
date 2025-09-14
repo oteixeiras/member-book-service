@@ -132,7 +132,8 @@ class MemberController:
                 data=result,
                 created_count=result.get("created_count", {}),
                 updated_count=result.get("updated_count", {}),
-                errors=result.get("errors", [])
+                errors=result.get("errors", []),
+                created_member_ids=result.get("created_member_ids", [])
             )
         except Exception as e:
             raise HTTPException(

@@ -131,3 +131,4 @@ class UpsertDataResponseDTO(BaseModel):
     created_count: dict
     updated_count: dict
     errors: List[str] = []
+    created_member_ids: List[int] = Field(default_factory=list, description="IDs dos membros criados")
